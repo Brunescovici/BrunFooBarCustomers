@@ -1,0 +1,43 @@
+@import url('https://fonts.googleapis.com/css2?family=ZCOOL+KuaiLe&display=swap');
+
+:root {
+  --main-color: #1D0F02;
+  --nav-color: #5E3C2A;
+  --white-color: #fff;
+}
+
+* {
+  margin: 0;
+  margin-block-start: 0;
+  margin-block-end: 0;
+  padding-inline-start: 0;
+  /* font-family: Arial, sans-serif; */
+}
+
+
+/* ===== Navbar stuff ===== */
+.navbar-brand {
+  position: absolute;
+  top: 0;
+  font-family: 'ZCOOL KuaiLe', cursive;
+  background-color: var(--main-color);
+  color: var(--white-color);
+  width: 100vw;
+  text-align: center;
+  left: 0;
+}
+.navbar-nav {
+  padding-top: 50px;
+}
+.navbar {
+  min-height: 120px;
+}
+.navbar-collapse {
+  margin-top: 65px;
+  background-color: var(--nav-color);
+  font-family: 'ZCOOL KuaiLe', cursive;
+  left: 0;
+  right: 0;
+  margin-left: 0px;
+  margin-right: 0px;
+}
