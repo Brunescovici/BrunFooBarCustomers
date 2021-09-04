@@ -23,21 +23,140 @@
   background-color: var(--main-color);
   color: var(--white-color);
   width: 100vw;
+  height: 220px;
   text-align: center;
   left: 0;
 }
-.navbar-nav {
-  padding-top: 50px;
+.navText {
+  width: 300px !important;
+  margin-top: 25px;
 }
+#barName {
+  font-size: 80px;
+}
+#barMenu {
+  font-size: 40px;
+  float: right;
+}
+
 .navbar {
   min-height: 120px;
 }
 .navbar-collapse {
-  margin-top: 65px;
+  margin-top: 210px;
   background-color: var(--nav-color);
   font-family: 'ZCOOL KuaiLe', cursive;
-  left: 0;
-  right: 0;
-  margin-left: 0px;
-  margin-right: 0px;
+  left: 0 !important;
 }
+
+.container-fluid {
+  padding: 0px !important;
+  margin: 0px !important;
+}
+.nav-item {
+  /* border: 1px solid red; */
+  background-color: var(--white-color);
+  margin: 15px 30px 15px 30px;
+  border-radius: 50px;
+  font-size: 35px;
+  text-transform: uppercase;
+  width: 250px;
+  text-align: center;
+}
+#shoppingCartNavElement {
+  width: 70px;
+  border-radius: 50%;
+  position: absolute;
+  float: right;
+  right: 0;
+}
+.nav-item a {
+  color: black;
+}
+
+
+
+
+
+
+
+
+
+
+
+/* ===== Media query ===== */
+@media screen and (max-width: 1440px) {
+  /* ===== Navbar stuff ===== */
+  .navbar-brand {
+    height: 180px;
+  }
+  .navText {
+    width: 240px !important;
+  }
+  #barName {
+    font-size: 60px;
+  }
+  #barMenu {
+    font-size: 30px;
+  }
+  .navbar-collapse {
+    margin-top: 170px;
+  }
+  .nav-item {
+    margin: 15px 30px 15px 30px;
+    border-radius: 50px;
+    font-size: 25px;
+    width: 200px;
+  }
+  #shoppingCartNavElement {
+    width: 70px;
+    border-radius: 50%;
+    position: absolute;
+    float: right;
+    right: 0;
+  }
+  .nav-item a {
+    color: black;
+  }
+
+}
+
+@media screen and (max-width: 1024px) {
+
+}
+
+@media screen and (max-width: 768px) {
+
+}
+
+@media screen and (max-width: 425px) {
+
+}
+
+@media screen and (max-width: 375px) {
+
+}
+
+@media screen and (max-width: 320px) {
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* end */
