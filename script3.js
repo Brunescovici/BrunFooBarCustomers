@@ -1,3 +1,7 @@
+// Nav IDs
+
+const logo = document.querySelector(".navbar-brand");
+
 // Main IDs
 
 const payBtn = document.getElementById("payButton");
@@ -12,6 +16,7 @@ const overlay = document.getElementById("overlay");
 // Event Listeners
 
 payBtn.addEventListener("click", checkVal);
+logo.addEventListener("click", goHome);
 
 // Variables
 
@@ -21,6 +26,12 @@ let valid;
 
 window.addEventListener("load", initPayment);
 
+// Navigation functions
+
+function goHome() {
+  window.location.href = "index.html";
+}
+
 // Main functions
 
 function initPayment() {
@@ -29,7 +40,14 @@ function initPayment() {
 }
 
 function showOverlay() {
-  overlay.style.display = "block";
+  overlay.style.display = "flex";
+  overlay.querySelector("#overlayHeader").textContent += Math.floor(
+    Math.random() * 350
+  );
+  setTimeout(function () {
+    overlay.querySelector(".circ").classList.add("path");
+    overlay.querySelector(".tick").classList.add("path");
+  }, 50);
 }
 
 function checkVal() {
@@ -77,6 +95,8 @@ function checkVal() {
   if (valid) {
     showOverlay();
     setTimeout(function () {
+      sessionStorage.removeItem("totalAmount");
+      sessionStorage.removeItem("FooBarCart");
       window.location.href = "index.html";
     }, 3000);
   }

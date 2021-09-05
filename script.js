@@ -3,6 +3,7 @@
 const newNavElement = document.getElementById("newNavElement");
 const popularNavElement = document.getElementById("popularNavElement");
 const fullMenuNavElement = document.getElementById("fullMenuNavElement");
+const logo = document.querySelector(".navbar-brand");
 
 // Overlay IDs
 
@@ -65,12 +66,17 @@ Steampunk.addEventListener("click", function () {
 newNavElement.addEventListener("click", showNew);
 popularNavElement.addEventListener("click", showPopular);
 fullMenuNavElement.addEventListener("click", showAll);
+logo.addEventListener("click", goHome);
 
 // Global Events
 
 window.addEventListener("load", initCart);
 
 // Nav Functions
+
+function goHome() {
+  window.location.href = "index.html";
+}
 
 function showNew() {
   catHeader.textContent =
