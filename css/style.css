@@ -363,6 +363,19 @@ circle {
     margin-left: 88vw;
     margin-right: auto;
   }
+
+  .quantitySelector {
+    font-size: 16pt;
+  }
+
+  .beerPrice {
+    font-size: 16pt;
+  }
+
+  .carousel-item img,
+  .col img {
+    width: 90px;
+  }
 }
 
 @media screen and (max-width: 425px) {
