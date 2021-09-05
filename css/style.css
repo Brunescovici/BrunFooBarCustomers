@@ -35,6 +35,8 @@ body {
 .navText {
   width: 300px !important;
   margin-top: 25px;
+  user-select: none;
+  cursor: pointer;
 }
 
 #barName {
@@ -96,6 +98,45 @@ body {
   margin-left: 20px;
 }
 
+/* ==== Overlay ==== */
+
+#overlay {
+  display: none;
+  position: absolute;
+  color: white;
+  text-align: center;
+  justify-content: center;
+  align-content: center;
+  flex-direction: column;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1035;
+  transition: all 0.5s;
+}
+
+#overlay svg {
+  height: 100px;
+}
+
+.circ {
+  opacity: 0;
+  stroke-dasharray: 130;
+  stroke-dashoffset: 130;
+  transition: all 1s;
+}
+
+.tick {
+  stroke-dasharray: 50;
+  stroke-dashoffset: 50;
+  transition: stroke-dashoffset 1s 0.5s ease-out;
+}
+
+svg .path {
+  opacity: 1;
+  stroke-dashoffset: 0;
+}
+
 /* ==== Main ==== */
 
 main {
@@ -110,7 +151,12 @@ main {
   background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23000' viewBox='0 0 8 8'%3E%3Cpath d='M2.75 0l-1.5 1.5 2.5 2.5-2.5 2.5 1.5 1.5 4-4-4-4z'/%3E%3C/svg%3E");
 }
 
-.carousel-item img {
+.carousel-item .col {
+  cursor: pointer;
+}
+
+.carousel-item img,
+.col img {
   width: 190px;
 }
 
@@ -127,7 +173,19 @@ main {
   font-weight: bold;
 }
 
+.arrow {
+  cursor: pointer;
+}
+
 .beerPrice {
+  font-size: 25pt;
+}
+
+#headerCart {
+  font-size: 22pt;
+}
+
+.quantitySelector {
   font-size: 25pt;
 }
 
@@ -179,7 +237,8 @@ circle {
     border-radius: 50%;
     right: 0;
   }
-  .carousel-item img {
+  .carousel-item img,
+  .col img {
     width: 160px;
   }
 }
@@ -216,7 +275,8 @@ circle {
     border-radius: 50%;
     right: 0;
   }
-  .carousel-item img {
+  .carousel-item img,
+  .col img {
     width: 150px;
   }
 }
@@ -253,7 +313,8 @@ circle {
     border-radius: 50%;
     right: 0;
   }
-  .carousel-item img {
+  .carousel-item img,
+  .col img {
     width: 130px;
   }
 }
