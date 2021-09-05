@@ -191,6 +191,7 @@ main {
 
 #footerCart {
   font-size: 25pt;
+  display: none;
 }
 
 /* ==== Footer ==== */
