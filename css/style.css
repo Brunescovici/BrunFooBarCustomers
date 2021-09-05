@@ -83,6 +83,10 @@ body {
   right: 0;
 }
 
+#shoppingCartNavElement img {
+  width: 55px;
+}
+
 .nav-item a {
   color: black;
 }
@@ -251,6 +255,9 @@ circle img {
     border-radius: 50%;
     right: 0;
   }
+  #shoppingCartNavElement img {
+    width: 40px;
+  }
   .carousel-item img,
   .col img {
     width: 160px;
@@ -288,6 +295,9 @@ circle img {
     width: 50px;
     border-radius: 50%;
     right: 0;
+  }
+  #shoppingCartNavElement img {
+    width: 35px;
   }
   .carousel-item img,
   .col img {
@@ -329,6 +339,9 @@ circle img {
     width: 40px;
     border-radius: 50%;
     right: 0;
+  }
+  #shoppingCartNavElement img {
+    width: 25px;
   }
   .carousel-item img,
   .col img {
@@ -372,6 +385,9 @@ circle img {
     width: 40px;
     border-radius: 50%;
     right: 0;
+  }
+  #shoppingCartNavElement img {
+    width: 25px;
   }
 
   .burgerNav {
