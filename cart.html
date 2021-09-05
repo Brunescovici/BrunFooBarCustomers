@@ -55,8 +55,8 @@
       </div>
     
     <main>
-        <div class="container" id="beerContainer">
-            <div class="row" id="headerCart">
+        
+            <div class="row container mx-auto" id="headerCart">
                 <div class="col">
                     <p>Beer</p>
                 </div>
@@ -67,7 +67,8 @@
                     <p>Price</p>
                 </div>
             </div>
-            <h1 class="text-center">No drinks added to cart.</h1>
+            <h1 class="text-center" id="noDrinks">No drinks added to cart.</h1>
+        <div class="container" id="beerContainer"></div>
         </div>
     </main>
     <footer class="w-100 mt-5 py-4 position-relative">
@@ -85,13 +86,13 @@
             </div>
             <div class="col">
                 <div class="row quantitySelector">
-                    <div class="col arrow">
+                    <div class="col arrow removeArrow">
                         <p><</p>
                     </div>
                     <div class="col quantity">
                         <p>1</p>
                     </div>
-                    <div class="col arrow">
+                    <div class="col arrow addArrow">
                         <p>></p>
                     </div>
                 </div>

@@ -66,7 +66,7 @@ function initCart() {
   for (let i = 0; i <= 9; i++) {
     cart[i] = 0;
   }
-  cartLoaded = localStorage.getItem("FooBarCart");
+  cartLoaded = sessionStorage.getItem("FooBarCart");
   for (let i = 0; i <= 9; i++) {
     cart[i] = cartLoaded[i * 2];
   }
@@ -75,7 +75,7 @@ function initCart() {
 function addToCart(beerNumber) {
   showOverlay(beerNumber);
   cart[beerNumber]++;
-  localStorage.setItem("FooBarCart", cart);
+  sessionStorage.setItem("FooBarCart", cart);
 }
 
 function setBeerNameHeader(beerNumber) {
