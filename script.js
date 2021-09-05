@@ -80,7 +80,7 @@ function goHome() {
 
 function showNew() {
   catHeader.textContent =
-    "Try our new set of beers! Excellent taste, powerful falvor!";
+    "Try our new set of beers! Excellent taste, powerful flavor!";
   ElHefe.style.display = "none";
   FTA.style.display = "block";
   GitHop.style.display = "block";
