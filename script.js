@@ -1,3 +1,9 @@
+// Nav IDs
+
+const newNavElement = document.getElementById("newNavElement");
+const popularNavElement = document.getElementById("popularNavElement");
+const fullMenuNavElement = document.getElementById("fullMenuNavElement");
+
 // Overlay IDs
 
 const OL = document.getElementById("overlay");
@@ -17,6 +23,7 @@ const Row26 = document.getElementById("Row26");
 const RC = document.getElementById("RC");
 const Sleighride = document.getElementById("Sleighride");
 const Steampunk = document.getElementById("Steampunk");
+const catHeader = document.getElementById("categoryHeader");
 
 // Variables
 
@@ -55,10 +62,60 @@ Sleighride.addEventListener("click", function () {
 Steampunk.addEventListener("click", function () {
   addToCart(9);
 });
+newNavElement.addEventListener("click", showNew);
+popularNavElement.addEventListener("click", showPopular);
+fullMenuNavElement.addEventListener("click", showAll);
 
 // Global Events
 
 window.addEventListener("load", initCart);
+
+// Nav Functions
+
+function showNew() {
+  catHeader.textContent =
+    "Try our new set of beers! Excellent taste, powerful falvor!";
+  ElHefe.style.display = "none";
+  FTA.style.display = "block";
+  GitHop.style.display = "block";
+  HollabackLager.style.display = "none";
+  HEA.style.display = "none";
+  Mowintime.style.display = "none";
+  Row26.style.display = "none";
+  RC.style.display = "block";
+  Sleighride.style.display = "block";
+  Steampunk.style.display = "none";
+}
+
+function showPopular() {
+  catHeader.textContent =
+    "Our customers love these ones, you should give them a try too!";
+  ElHefe.style.display = "block";
+  FTA.style.display = "none";
+  GitHop.style.display = "block";
+  HollabackLager.style.display = "none";
+  HEA.style.display = "none";
+  Mowintime.style.display = "none";
+  Row26.style.display = "block";
+  RC.style.display = "none";
+  Sleighride.style.display = "none";
+  Steampunk.style.display = "block";
+}
+
+function showAll() {
+  catHeader.textContent =
+    "Explore our rich menu of beers. Plenty to choose from!";
+  ElHefe.style.display = "block";
+  FTA.style.display = "block";
+  GitHop.style.display = "block";
+  HollabackLager.style.display = "block";
+  HEA.style.display = "block";
+  Mowintime.style.display = "block";
+  Row26.style.display = "block";
+  RC.style.display = "block";
+  Sleighride.style.display = "block";
+  Steampunk.style.display = "block";
+}
 
 // Cart Functions
 

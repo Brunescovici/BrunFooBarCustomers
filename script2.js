@@ -3,13 +3,18 @@
 const template = document.getElementById("beerTemplate");
 const tempContainer = document.getElementById("beerContainer");
 const noDrinks = document.getElementById("noDrinks");
+const totalPrice = document.getElementById("totalPrice");
+const footerCart = document.getElementById("footerCart");
+const payBtn = document.getElementById("payButton");
 let removeArrow, addArrow;
 
 // Variables
 
 let cart = [],
   cartLoaded,
-  i = 0;
+  i = 0,
+  total = 0,
+  prices = [];
 
 // Global Events
 
@@ -17,7 +22,21 @@ window.addEventListener("load", initCart);
 
 // Event Listeners
 
+payBtn.addEventListener("click", pay);
+
 // Cart functions
+
+function pay() {
+  sessionStorage.setItem("totalAmount", total);
+}
+
+function totalCalculator() {
+  (total = 0), (prices = tempContainer.querySelectorAll(".beerPrice"));
+  for (let i = 0; i < prices.length; i++) {
+    total = parseInt(prices[i].textContent) + total;
+  }
+  totalPrice.textContent = total + ",-";
+}
 
 function initCart() {
   for (let i = 0; i <= 9; i++) {
@@ -28,10 +47,12 @@ function initCart() {
     cart[i] = cartLoaded[i * 2];
   }
   cartPopulate();
+  totalCalculator();
 }
 
 function cartPopulate() {
   noDrinks.style.display = "block";
+  footerCart.style.display = "none";
   i = 0;
   while (tempContainer.firstChild) {
     tempContainer.removeChild(tempContainer.lastChild);
@@ -39,66 +60,67 @@ function cartPopulate() {
   cart.forEach((el) => {
     if (el > 0) {
       noDrinks.style.display = "none";
+      footerCart.style.display = "flex";
       let clone = template.content.cloneNode(true);
       if (i == 0) {
         clone.querySelector(".row").id = "ElHefe";
         clone.querySelector(".beerPic").src += "El Hefe.png";
         clone.querySelector(".quantity p").textContent = el;
-        clone.querySelector(".beerPrice").textContent = "45,-";
+        clone.querySelector(".beerPrice").textContent = el * 45 + ",-";
         tempContainer.appendChild(clone);
       } else if (i == 1) {
         clone.querySelector(".row").id = "FTA";
         clone.querySelector(".beerPic").src += "Fairy Tale Ale.png";
         clone.querySelector(".quantity p").textContent = el;
-        clone.querySelector(".beerPrice").textContent = "40,-";
+        clone.querySelector(".beerPrice").textContent = el * 40 + ",-";
         tempContainer.appendChild(clone);
       } else if (i == 2) {
         clone.querySelector(".row").id = "GitHop";
         clone.querySelector(".beerPic").src += "GitHop.png";
         clone.querySelector(".quantity p").textContent = el;
-        clone.querySelector(".beerPrice").textContent = "45,-";
+        clone.querySelector(".beerPrice").textContent = el * 45 + ",-";
         tempContainer.appendChild(clone);
       } else if (i == 3) {
         clone.querySelector(".row").id = "HollabackLager";
         clone.querySelector(".beerPic").src += "Hollaback Lager.png";
         clone.querySelector(".quantity p").textContent = el;
-        clone.querySelector(".beerPrice").textContent = "55,-";
+        clone.querySelector(".beerPrice").textContent = el * 55 + ",-";
         tempContainer.appendChild(clone);
       } else if (i == 4) {
         clone.querySelector(".row").id = "HEA";
         clone.querySelector(".beerPic").src += "Hoppily Ever After.png";
         clone.querySelector(".quantity p").textContent = el;
-        clone.querySelector(".beerPrice").textContent = "40,-";
+        clone.querySelector(".beerPrice").textContent = el * 40 + ",-";
         tempContainer.appendChild(clone);
       } else if (i == 5) {
         clone.querySelector(".row").id = "Mowintime";
         clone.querySelector(".beerPic").src += "Mowintime.png";
         clone.querySelector(".quantity p").textContent = el;
-        clone.querySelector(".beerPrice").textContent = "50,-";
+        clone.querySelector(".beerPrice").textContent = el * 50 + ",-";
         tempContainer.appendChild(clone);
       } else if (i == 6) {
         clone.querySelector(".row").id = "Row26";
         clone.querySelector(".beerPic").src += "Row 26.png";
         clone.querySelector(".quantity p").textContent = el;
-        clone.querySelector(".beerPrice").textContent = "50,-";
+        clone.querySelector(".beerPrice").textContent = el * 50 + ",-";
         tempContainer.appendChild(clone);
       } else if (i == 7) {
         clone.querySelector(".row").id = "RC";
         clone.querySelector(".beerPic").src += "Ruined Childhood.png";
         clone.querySelector(".quantity p").textContent = el;
-        clone.querySelector(".beerPrice").textContent = "45,-";
+        clone.querySelector(".beerPrice").textContent = el * 45 + ",-";
         tempContainer.appendChild(clone);
       } else if (i == 8) {
         clone.querySelector(".row").id = "Sleighride";
         clone.querySelector(".beerPic").src += "Sleighride.png";
         clone.querySelector(".quantity p").textContent = el;
-        clone.querySelector(".beerPrice").textContent = "55,-";
+        clone.querySelector(".beerPrice").textContent = el * 55 + ",-";
         tempContainer.appendChild(clone);
       } else if (i == 9) {
         clone.querySelector(".row").id = "Steampunk";
         clone.querySelector(".beerPic").src += "Steampunk.png";
         clone.querySelector(".quantity p").textContent = el;
-        clone.querySelector(".beerPrice").textContent = "45,-";
+        clone.querySelector(".beerPrice").textContent = el * 45 + ",-";
         tempContainer.appendChild(clone);
       }
     }
@@ -127,6 +149,8 @@ function addBeer(x) {
     if (numberOfBeers < 9) {
       numberOfBeers++;
       parentName.querySelector(".quantity p").textContent = numberOfBeers;
+      parentName.querySelector(".beerPrice").textContent =
+        numberOfBeers * 45 + ",-";
       cart[0] += 1;
     }
   } else if (x.path[4].id == "FTA") {
@@ -139,6 +163,8 @@ function addBeer(x) {
       numberOfBeers++;
       console.log(numberOfBeers);
       parentName.querySelector(".quantity p").textContent = numberOfBeers;
+      parentName.querySelector(".beerPrice").textContent =
+        numberOfBeers * 40 + ",-";
       cart[1] += 1;
     }
   } else if (x.path[4].id == "GitHop") {
@@ -149,6 +175,8 @@ function addBeer(x) {
     if (numberOfBeers < 9) {
       numberOfBeers++;
       parentName.querySelector(".quantity p").textContent = numberOfBeers;
+      parentName.querySelector(".beerPrice").textContent =
+        numberOfBeers * 45 + ",-";
       cart[2] += 1;
     }
   } else if (x.path[4].id == "HollabackLager") {
@@ -158,6 +186,8 @@ function addBeer(x) {
     );
     if (numberOfBeers < 9) {
       parentName.querySelector(".quantity p").textContent = numberOfBeers + 1;
+      parentName.querySelector(".beerPrice").textContent =
+        numberOfBeers * 55 + ",-";
       cart[3] += 1;
     }
   } else if (x.path[4].id == "HEA") {
@@ -167,6 +197,8 @@ function addBeer(x) {
     );
     if (numberOfBeers < 9) {
       parentName.querySelector(".quantity p").textContent = numberOfBeers + 1;
+      parentName.querySelector(".beerPrice").textContent =
+        numberOfBeers * 40 + ",-";
       cart[4] += 1;
     }
   } else if (x.path[4].id == "Mowintime") {
@@ -176,6 +208,8 @@ function addBeer(x) {
     );
     if (numberOfBeers < 9) {
       parentName.querySelector(".quantity p").textContent = numberOfBeers + 1;
+      parentName.querySelector(".beerPrice").textContent =
+        numberOfBeers * 50 + ",-";
       cart[5] += 1;
     }
   } else if (x.path[4].id == "Row26") {
@@ -185,6 +219,8 @@ function addBeer(x) {
     );
     if (numberOfBeers < 9) {
       parentName.querySelector(".quantity p").textContent = numberOfBeers + 1;
+      parentName.querySelector(".beerPrice").textContent =
+        numberOfBeers * 50 + ",-";
       cart[6] += 1;
     }
   } else if (x.path[4].id == "RC") {
@@ -194,6 +230,8 @@ function addBeer(x) {
     );
     if (numberOfBeers < 9) {
       parentName.querySelector(".quantity p").textContent = numberOfBeers + 1;
+      parentName.querySelector(".beerPrice").textContent =
+        numberOfBeers * 45 + ",-";
       cart[7] += 1;
     }
   } else if (x.path[4].id == "Sleighride") {
@@ -203,6 +241,8 @@ function addBeer(x) {
     );
     if (numberOfBeers < 9) {
       parentName.querySelector(".quantity p").textContent = numberOfBeers + 1;
+      parentName.querySelector(".beerPrice").textContent =
+        numberOfBeers * 55 + ",-";
       cart[8] += 1;
     }
   } else if (x.path[4].id == "Steampunk") {
@@ -212,10 +252,13 @@ function addBeer(x) {
     );
     if (numberOfBeers < 9) {
       parentName.querySelector(".quantity p").textContent = numberOfBeers + 1;
+      parentName.querySelector(".beerPrice").textContent =
+        numberOfBeers * 45 + ",-";
       cart[9] += 1;
     }
   }
   sessionStorage.setItem("FooBarCart", cart);
+  totalCalculator();
 }
 
 function removeBeer(x) {
@@ -225,72 +268,103 @@ function removeBeer(x) {
     numberOfBeers = parseInt(
       parentName.querySelector(".quantity p").textContent
     );
-    parentName.querySelector(".quantity p").textContent = numberOfBeers - 1;
+    numberOfBeers--;
+    parentName.querySelector(".quantity p").textContent = numberOfBeers;
+    parentName.querySelector(".beerPrice").textContent =
+      numberOfBeers * 45 + ",-";
     cart[0] -= 1;
   } else if (x.path[4].id == "FTA") {
     let parentName = document.querySelector("#FTA");
     numberOfBeers = parseInt(
       parentName.querySelector(".quantity p").textContent
     );
-    parentName.querySelector(".quantity p").textContent = numberOfBeers - 1;
+    numberOfBeers--;
+    parentName.querySelector(".quantity p").textContent = numberOfBeers;
+    parentName.querySelector(".beerPrice").textContent =
+      numberOfBeers * 40 + ",-";
     cart[1] -= 1;
   } else if (x.path[4].id == "GitHop") {
     let parentName = document.querySelector("#GitHop");
     numberOfBeers = parseInt(
       parentName.querySelector(".quantity p").textContent
     );
-    parentName.querySelector(".quantity p").textContent = numberOfBeers - 1;
+    numberOfBeers--;
+    parentName.querySelector(".quantity p").textContent = numberOfBeers;
+    parentName.querySelector(".beerPrice").textContent =
+      numberOfBeers * 45 + ",-";
     cart[2] -= 1;
   } else if (x.path[4].id == "HollabackLager") {
     let parentName = document.querySelector("#HollabackLager");
     numberOfBeers = parseInt(
       parentName.querySelector(".quantity p").textContent
     );
-    parentName.querySelector(".quantity p").textContent = numberOfBeers - 1;
+    numberOfBeers--;
+    parentName.querySelector(".quantity p").textContent = numberOfBeers;
+    parentName.querySelector(".beerPrice").textContent =
+      numberOfBeers * 55 + ",-";
     cart[3] -= 1;
   } else if (x.path[4].id == "HEA") {
     let parentName = document.querySelector("#HEA");
     numberOfBeers = parseInt(
       parentName.querySelector(".quantity p").textContent
     );
-    parentName.querySelector(".quantity p").textContent = numberOfBeers - 1;
+    numberOfBeers--;
+    parentName.querySelector(".quantity p").textContent = numberOfBeers;
+    parentName.querySelector(".beerPrice").textContent =
+      numberOfBeers * 40 + ",-";
     cart[4] -= 1;
   } else if (x.path[4].id == "Mowintime") {
     let parentName = document.querySelector("#Mowintime");
     numberOfBeers = parseInt(
       parentName.querySelector(".quantity p").textContent
     );
-    parentName.querySelector(".quantity p").textContent = numberOfBeers - 1;
+    numberOfBeers--;
+    parentName.querySelector(".quantity p").textContent = numberOfBeers;
+    parentName.querySelector(".beerPrice").textContent =
+      numberOfBeers * 50 + ",-";
     cart[5] -= 1;
   } else if (x.path[4].id == "Row26") {
     let parentName = document.querySelector("#Row26");
     numberOfBeers = parseInt(
       parentName.querySelector(".quantity p").textContent
     );
-    parentName.querySelector(".quantity p").textContent = numberOfBeers - 1;
+    numberOfBeers--;
+    parentName.querySelector(".quantity p").textContent = numberOfBeers;
+    parentName.querySelector(".beerPrice").textContent =
+      numberOfBeers * 50 + ",-";
     cart[6] -= 1;
   } else if (x.path[4].id == "RC") {
     let parentName = document.querySelector("#RC");
     numberOfBeers = parseInt(
       parentName.querySelector(".quantity p").textContent
     );
-    parentName.querySelector(".quantity p").textContent = numberOfBeers - 1;
+    numberOfBeers--;
+    parentName.querySelector(".quantity p").textContent = numberOfBeers;
+    parentName.querySelector(".beerPrice").textContent =
+      numberOfBeers * 45 + ",-";
     cart[7] -= 1;
   } else if (x.path[4].id == "Sleighride") {
     let parentName = document.querySelector("#Sleighride");
     numberOfBeers = parseInt(
       parentName.querySelector(".quantity p").textContent
     );
-    parentName.querySelector(".quantity p").textContent = numberOfBeers - 1;
+    numberOfBeers--;
+    parentName.querySelector(".quantity p").textContent = numberOfBeers;
+    parentName.querySelector(".beerPrice").textContent =
+      numberOfBeers * 55 + ",-";
     cart[8] -= 1;
   } else if (x.path[4].id == "Steampunk") {
     let parentName = document.querySelector("#Steampunk");
     numberOfBeers = parseInt(
       parentName.querySelector(".quantity p").textContent
     );
-    parentName.querySelector(".quantity p").textContent = numberOfBeers - 1;
+    numberOfBeers--;
+    parentName.querySelector(".quantity p").textContent = numberOfBeers;
+    parentName.querySelector(".beerPrice").textContent =
+      numberOfBeers * 45 + ",-";
     cart[9] -= 1;
   }
   sessionStorage.setItem("FooBarCart", cart);
-  if (numberOfBeers == 1) cartPopulate();
+  if (numberOfBeers == 0) cartPopulate();
+  totalCalculator();
 }

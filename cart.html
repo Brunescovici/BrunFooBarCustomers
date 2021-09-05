@@ -37,16 +37,7 @@
             <div class="collapse navbar-collapse" id="navbarResponsive">
               <ul id="navList" class="navbar-nav m-auto">
                 <li class="nav-item" id="newNavElement">
-                  <a href="index.html" class="nav-link nav-a">New</a>
-                </li>
-                <li class="nav-item" id="popularNavElement">
-                  <a href="#" class="nav-link nav-a">Popular</a>
-                </li>
-                <li class="nav-item" id="fullMenuNavElement">
-                  <a href="#" class="nav-link nav-a">Full menu</a>
-                </li>
-                <li class="nav-item" id="shoppingCartNavElement">
-                  <a href="#" class="nav-link nav-a">i</a>
+                  <a href="index.html" class="nav-link nav-a">MENU</a>
                 </li>
               </ul>
             </div>
@@ -55,20 +46,30 @@
       </div>
     
     <main>
-        
-            <div class="row my-5 container mx-auto" id="headerCart">
-                <div class="col">
-                    <p>Beer</p>
-                </div>
-                <div class="col">
-                    <p>Quantity</p>
-                </div>
-                <div class="col">
-                    <p>Price</p>
-                </div>
+    
+        <div class="row my-5 container mx-auto" id="headerCart">
+            <div class="col">
+                <p>Beer</p>
             </div>
-            <h1 class="text-center" id="noDrinks">No drinks added to cart.</h1>
+            <div class="col">
+                <p>Quantity</p>
+            </div>
+            <div class="col">
+                <p>Price</p>
+            </div>
+        </div>
+        <h1 class="text-center" id="noDrinks">No drinks added to cart.</h1>
         <div class="container" id="beerContainer"></div>
+        <div class="row my-5 mx-auto container" id="footerCart">
+            <div class="col align-self-center">
+                <p>Total</p>
+            </div>
+            <div class="col align-self-end">
+                <p id="totalPrice">50,-</p>
+            </div>
+        </div>
+        <div class="d-flex col-6 mx-auto justify-content-center">
+            <a role="button" href="#" class="btn btn-success btn-lg" id="payButton">PAY</a>
         </div>
     </main>
     <footer class="w-100 mt-5 py-4 position-relative">

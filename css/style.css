@@ -189,6 +189,10 @@ main {
   font-size: 25pt;
 }
 
+#footerCart {
+  font-size: 25pt;
+}
+
 /* ==== Footer ==== */
 
 footer {
@@ -279,6 +283,9 @@ circle {
   .col img {
     width: 150px;
   }
+  #footerCart {
+    font-size: 20pt;
+  }
 }
 
 @media screen and (max-width: 768px) {
@@ -316,6 +323,9 @@ circle {
   .carousel-item img,
   .col img {
     width: 130px;
+  }
+  #footerCart {
+    font-size: 16pt;
   }
 }
 
