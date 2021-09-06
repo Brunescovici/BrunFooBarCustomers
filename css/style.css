@@ -189,6 +189,10 @@ main {
   font-size: 22pt;
 }
 
+#payButton {
+  display: none;
+}
+
 .quantitySelector {
   font-size: 25pt;
 }

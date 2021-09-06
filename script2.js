@@ -8,6 +8,7 @@ const template = document.getElementById("beerTemplate");
 const tempContainer = document.getElementById("beerContainer");
 const noDrinks = document.getElementById("noDrinks");
 const totalPrice = document.getElementById("totalPrice");
+const headerCart = document.getElementById("headerCart");
 const footerCart = document.getElementById("footerCart");
 const payBtn = document.getElementById("payButton");
 let removeArrow, addArrow;
@@ -65,6 +66,7 @@ function cartPopulate() {
   noDrinks.style.display = "block";
   footerCart.style.display = "none";
   payBtn.style.display = "none";
+  headerCart.style.display = "none";
   i = 0;
   while (tempContainer.firstChild) {
     tempContainer.removeChild(tempContainer.lastChild);
@@ -74,6 +76,7 @@ function cartPopulate() {
       noDrinks.style.display = "none";
       footerCart.style.display = "flex";
       payBtn.style.display = "flex";
+      headerCart.style.display = "flex";
       let clone = template.content.cloneNode(true);
       if (i == 0) {
         clone.querySelector(".row").id = "ElHefe";
